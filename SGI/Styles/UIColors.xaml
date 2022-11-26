@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Background Colors-->
+    <Color x:Key="primaryBackColor1">#0075be</Color>
+    <Color x:Key="primaryBackColor2">#c0d56c</Color>
+    <Color x:Key="secondaryBackColor1">#40cfff</Color>
+    <Color x:Key="secondaryBackColor2">#9bfab0</Color>
+
+    <!--Menu Navigation-->
+    <Color x:Key="menuBackColor1">#40cfff</Color>
+    <Color x:Key="menuyBackColor2">#d0fdd7</Color>
+
+    <!--Window Border Colors-->
+    <Color x:Key="winBorderColor1">#0075be</Color>
+    <Color x:Key="winBorderColor2">#63656a</Color>
+    <Color x:Key="winBorderColor3">#c0d56c</Color>
+
+
+    <!--Text Colors-->
+
+    <SolidColorBrush x:Key="textPlainColor1" Color="#0c6387"/>
+
+    <!--Icon Colors-->
+    <SolidColorBrush x:Key="color1" Color="#122a26"/>
+    <SolidColorBrush x:Key="color2" Color="#0c6387"/>
+    <SolidColorBrush x:Key="color3" Color="#0074a1"/>
+    <SolidColorBrush x:Key="color4" Color="#00b3b1"/>
+    <SolidColorBrush x:Key="color5" Color="#06d6da"/>
+    <SolidColorBrush x:Key="color6" Color="#00e7ff"/>
+    <SolidColorBrush x:Key="color7" Color="#08daff"/>
+    <SolidColorBrush x:Key="color8" Color="#54edf5"/>
+    <SolidColorBrush x:Key="color9" Color="Red"/>
+    
+    <!--Static Colors-->
+    <SolidColorBrush x:Key="plainTextColor1" Color="#9497CD"/>
+    <SolidColorBrush x:Key="plainTextColor2" Color="#7C80C2"/>
+    <SolidColorBrush x:Key="plainTextColor3" Color="#0075be"/>
+    
+    <!--OverMouse Colors-->
+    <SolidColorBrush x:Key="titleColor1" Color="#E0E1F1"/>
+    <SolidColorBrush x:Key="titleColor2" Color="#D5CFF5"/>
+    <SolidColorBrush x:Key="titleColor3" Color="#0075be"/>
+    <SolidColorBrush x:Key="panelOverColor" Color="#8bdaff"/>
+
+    <!--Active Colors-->
+    <SolidColorBrush x:Key="panelActiveColor" Color="#d8ffff"/>
+
+
+    <SolidColorBrush x:Key="panelColor" Color="black"/>
+
+
+    <!--Button Colors-->
+    <!--Etc-->
+</ResourceDictionary>
