@@ -65,14 +65,15 @@ namespace SGI.Repositories
                     {
                         user = new UserModel()
                         {
-                            id = reader[0].ToString(),
-                            nombre = reader[1].ToString(),
-                            primer_apellido = reader[2].ToString(),
-                            segundo_apellido = reader[3].ToString(),
-                            telefono = reader[4].ToString(),
-                            correo = reader[5].ToString(),
-                            usuario = reader[6].ToString(),
-                            password = string.Empty,
+                            Id = reader[0].ToString(),
+                            Nombre = reader[1].ToString(),
+                            PrimerApellido = reader[2].ToString(),
+                            SegundoApellido = reader[3].ToString(),
+                            Telefono = reader[4].ToString(),
+                            Correo = reader[5].ToString(),
+                            Usuario = reader[6].ToString(),
+                            Password = string.Empty,
+                            Role = reader[7].ToString(),
                         };
                     }
                 }

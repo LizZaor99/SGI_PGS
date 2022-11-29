@@ -15,7 +15,7 @@ namespace SGI.Views
         {
             InitializeComponent();
         }
-        
+
         private void Window_MouseDown(Object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -23,25 +23,16 @@ namespace SGI.Views
         }
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState=WindowState.Minimized; 
+            WindowState = WindowState.Minimized;
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown(); 
+            Application.Current.Shutdown();
         }
 
         private void txtUser_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
-
-        private void OnKeyDownHandler(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                MessageBox.Show("Holi");
-               
-            }
         }
     }
 }

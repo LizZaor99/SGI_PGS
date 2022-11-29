@@ -146,7 +146,7 @@
                              Height="28"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
-                             Padding="30,0,0,0" TextChanged="txtUser_TextChanged" KeyDown="OnKeyDownHandler">
+                             Padding="30,0,0,0" TextChanged="txtUser_TextChanged">
                         <TextBox.Background>
                             <ImageBrush ImageSource="C:\Proyectos\SGI\Images\User.png" 
                                         Stretch="Uniform"
@@ -161,7 +161,7 @@
                                Margin="0,15,0,0"/>
                     <helpers:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                  Height="28"
-                                                 Margin="0,5,0,0" KeyDown="OnKeyDownHandler">
+                                                 Margin="0,5,0,0">
                     </helpers:BindablePasswordBox>
 
                     <TextBlock Text="{Binding ErrorMessage}"

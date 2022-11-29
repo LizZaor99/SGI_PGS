@@ -12,6 +12,40 @@
         Background="Transparent"
         AllowsTransparency="True">
 
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type ViewModels:HomeViewModel}">
+            <local:HomeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModels:ContactsViewModel}">
+            <local:ContactsView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModels:InventoryViewModel}">
+            <local:InventoryView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModels:ProvidersViewModel}">
+            <local:ProvidersView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModels:EquipmentViewModel}">
+            <local:EquipmentView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModels:NetworkViewModel}">
+            <local:NetworkView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModels:SMSViewModel}">
+            <local:SMSView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModels:ManageViewModel}">
+            <local:ManageView/>
+        </DataTemplate>
+    </Window.Resources>
+
     <Window.DataContext>
         <ViewModels:DashboardViewModel/>
     </Window.DataContext>
@@ -32,7 +66,7 @@
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <!--MENÚ-->
             <Border CornerRadius="10,0,0,10" Grid.Column="0">
                 <Border.Background>
@@ -46,17 +80,20 @@
                         <Image Source="C:\Proyectos\SGI\Images\Logo.png" Width="235"/>
 
                     </StackPanel>
-                    <!--HOME-->
+                    <!--Inicio-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}" Checked="RadioButton_Checked">
+                                 Tag="{StaticResource color1}"
+                                 IsChecked="True"
+                                 Command="{Binding ShowHomeViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Inicio" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <!--USER-->
+                    <!--Contactos-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color2}">
+                                 Tag="{StaticResource color2}"
+                                 Command="{Binding ShowContactsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="AddressBook" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Contactos" Style="{StaticResource menuButtonText}"/>
@@ -64,47 +101,53 @@
                     </RadioButton>
                     <!--Inventario-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color3}">
+                                 Tag="{StaticResource color3}"
+                                 Command="{Binding ShowInventoryViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Truck" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Inventario" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <!--Inventario-->
+                    <!--Proveedores-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color4}">
+                                 Tag="{StaticResource color4}"
+                                 Command="{Binding ShowProvidersViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Users" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Proveedores" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    <!--Equipos-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color5}">
+                                 Tag="{StaticResource color5}"
+                                 Command="{Binding ShowEquipmentViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Laptop" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Equipos" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    <!--Red-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color6}" Checked="RadioButton_Checked_1">
+                                 Tag="{StaticResource color6}"
+                                 Command="{Binding ShowNetworkViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Wifi" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Red" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    <!--SMS-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color7}">
+                                 Tag="{StaticResource color7}"
+                                 Command="{Binding ShowSMSViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Telegram" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="SMS" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    <!--Administrar-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color8}">
+                                 Tag="{StaticResource color8}"
+                                 Command="{Binding ShowManageViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:ImageAwesome Icon="Tasks" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Administrar" Style="{StaticResource menuButtonText}"/>
@@ -114,19 +157,17 @@
 
                 </StackPanel>
             </Border>
-            
-            
 
             <!--Main-->
-                <Border CornerRadius="0,10,10,0" Grid.Column="2">
-                    <Border.Background>
+            <Border CornerRadius="0,10,10,0" Grid.Column="2">
+                <Border.Background>
                     <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
                         <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
                         <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    
-                    <!--ControlBar-->
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <!--ControlBar-->
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>
@@ -164,7 +205,7 @@
                             <fa:ImageAwesome Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                         </Button>
                     </StackPanel>
-                    
+
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -174,8 +215,8 @@
                         <StackPanel Grid.Column="0"
                                     Orientation="Horizontal"
                                     VerticalAlignment="Center">
-                            <fa:ImageAwesome Icon="Home" Height="20" Foreground="{StaticResource plainTextColor3}" Margin="35,0,10,0"/>
-                            <TextBlock Text="INICIO" Foreground="{StaticResource textPlainColor1}" FontSize="20" FontFamily="Montserrat" FontWeight="Medium" VerticalAlignment="Center"/>
+                            <fa:ImageAwesome Icon="{Binding Icon}" Height="20" Foreground="{StaticResource plainTextColor3}" Margin="35,0,10,0"/>
+                            <TextBlock Text="{Binding Caption}" Foreground="{StaticResource textPlainColor1}" FontSize="20" FontFamily="Montserrat" FontWeight="Medium" VerticalAlignment="Center"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1"
@@ -215,13 +256,18 @@
                             </Button>
 
                         </StackPanel>
-                        
-                        
-                       
+
+
+
                     </Grid>
-                    
+
+                    <!--Content-->
+
+                    <ContentControl Content="{Binding CurrentChildView}"
+                                    Margin="25, 0, 25 , 25" Grid.Row="2"/>
+
                 </Grid>
-                </Border>
+            </Border>
         </Grid>
     </Border>
 </Window>

@@ -24,10 +24,10 @@ namespace SGI
                 {
                     var main = new Dashboard();
                     main.Show();
-            loginView.Close();
-        }
-    };
+                    loginView.Close();
+                }
+            };
 
-}
+        }
     }
 }
