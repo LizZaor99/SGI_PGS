@@ -25,7 +25,7 @@ namespace SGI.Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "select * from [TB1_Users] where usuario=@userName and [password]=@password";
+                command.CommandText = "select * from [TbUsuarios] where usuario=@userName and [password]=@password";
                 command.Parameters.Add("@username", SqlDbType.NVarChar).Value = credential.UserName;
                 command.Parameters.Add("@password", SqlDbType.NVarChar).Value = credential.Password;
                 validUser = command.ExecuteScalar() == null ? false : true;
@@ -57,7 +57,7 @@ namespace SGI.Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "select * from [TB1_Users] where usuario=@userName";
+                command.CommandText = "select * from [TbUsuarios] where usuario=@userName";
                 command.Parameters.Add("@username", SqlDbType.NVarChar).Value = userName;
                 using (var reader= command.ExecuteReader())
                 {

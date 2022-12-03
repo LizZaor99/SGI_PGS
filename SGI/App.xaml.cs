@@ -16,17 +16,17 @@ namespace SGI
     {
         protected void ApplicationStart(object sender, StartupEventArgs e)
         {
-            var loginView = new LoginView();
-            loginView.Show();
-            loginView.IsVisibleChanged += (s, ev) =>
-            {
-                if (loginView.IsVisible == false && loginView.IsLoaded)
-                {
+            //var loginView = new LoginView();
+            //loginView.Show();
+            //loginView.IsVisibleChanged += (s, ev) =>
+            //{
+            //    if (loginView.IsVisible == false && loginView.IsLoaded)
+            //    {
                     var main = new Dashboard();
                     main.Show();
-                    loginView.Close();
-                }
-            };
+            //        loginView.Close();
+            //    }
+            //};
 
         }
     }

@@ -1,14 +1,14 @@
 ﻿
 FC:\Proyectos\SGI\SGI\App.xaml;;
 FC:\Proyectos\SGI\SGI\Helpers\BindablePasswordBox.xaml;;
-FC:\Proyectos\SGI\SGI\Views\Dashboard.xaml;;
-FC:\Proyectos\SGI\SGI\Views\LoginView.xaml;;
-FC:\Proyectos\SGI\SGI\Views\SMSView.xaml;;
 FC:\Proyectos\SGI\SGI\Views\ContactsView.xaml;;
+FC:\Proyectos\SGI\SGI\Views\Dashboard.xaml;;
 FC:\Proyectos\SGI\SGI\Views\EquipmentView.xaml;;
 FC:\Proyectos\SGI\SGI\Views\HomeView.xaml;;
 FC:\Proyectos\SGI\SGI\Views\InventoryView.xaml;;
+FC:\Proyectos\SGI\SGI\Views\LoginView.xaml;;
 FC:\Proyectos\SGI\SGI\Views\ManageView.xaml;;
 FC:\Proyectos\SGI\SGI\Views\NetworkView.xaml;;
 FC:\Proyectos\SGI\SGI\Views\ProvidersView.xaml;;
+FC:\Proyectos\SGI\SGI\Views\SMSView.xaml;;
 

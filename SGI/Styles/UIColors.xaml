@@ -6,6 +6,7 @@
     <Color x:Key="primaryBackColor2">#c0d56c</Color>
     <Color x:Key="secondaryBackColor1">#40cfff</Color>
     <Color x:Key="secondaryBackColor2">#9bfab0</Color>
+    
 
     <!--Menu Navigation-->
     <Color x:Key="menuBackColor1">#40cfff</Color>
@@ -30,7 +31,7 @@
     <SolidColorBrush x:Key="color6" Color="#00e7ff"/>
     <SolidColorBrush x:Key="color7" Color="#08daff"/>
     <SolidColorBrush x:Key="color8" Color="#54edf5"/>
-    <SolidColorBrush x:Key="color9" Color="Red"/>
+    <SolidColorBrush x:Key="color9" Color="#b8ffcc"/>
     
     <!--Static Colors-->
     <SolidColorBrush x:Key="plainTextColor1" Color="#9497CD"/>

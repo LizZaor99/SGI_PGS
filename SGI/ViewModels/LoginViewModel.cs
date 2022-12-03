@@ -91,7 +91,7 @@ namespace SGI.ViewModels
         {
             bool validData;
             if (string.IsNullOrWhiteSpace(UserName) || UserName.Length < 3 ||
-                Password == null || Password.Length < 3)
+                Password == null || Password.Length < 3 ||Password.Length > 8)
                 validData = false;
             else
                 validData = true;

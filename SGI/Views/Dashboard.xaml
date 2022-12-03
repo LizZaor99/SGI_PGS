@@ -13,10 +13,10 @@
         AllowsTransparency="True">
 
     <Window.Resources>
+
         <DataTemplate DataType="{x:Type ViewModels:HomeViewModel}">
             <local:HomeView/>
         </DataTemplate>
-
         <DataTemplate DataType="{x:Type ViewModels:ContactsViewModel}">
             <local:ContactsView/>
         </DataTemplate>
@@ -254,18 +254,12 @@
                                     ToolTip="Información">
                                 <fa:ImageAwesome Icon="Info" Style="{StaticResource userButtonIcon}"/>
                             </Button>
-
                         </StackPanel>
-
-
-
                     </Grid>
 
                     <!--Content-->
-
                     <ContentControl Content="{Binding CurrentChildView}"
                                     Margin="25, 0, 25 , 25" Grid.Row="2"/>
-
                 </Grid>
             </Border>
         </Grid>

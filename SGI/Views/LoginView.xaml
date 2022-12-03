@@ -128,7 +128,7 @@
                             Margin="0,35,0,0">
                     <Image Source="C:\Proyectos\SGI\Images\Logo.png"
                            Width="215" Height="100"/>
-                    
+
                     <TextBlock Text="Usuario"
                                Foreground="#63656a"
                                FontSize="12"
@@ -171,7 +171,7 @@
                                FontFamily="Montserrat"                             
                                Margin="0,10,0,0"
                                TextWrapping="Wrap"/>
-                    
+
                     <Button x:Name="btnLogin"  
                             Command="{Binding LoginCommand}"
                             BorderThickness="0"
@@ -202,25 +202,8 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-                    <!--<StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="0,15,0,0">
-                        <TextBlock Text="Recuperar Contraseña"
-                               Foreground="#63656a"
-                               FontSize="12"
-                               FontWeight="Medium"
-                               FontFamily="Montserrat"/>
-                        <TextBlock Text="Reset"
-                               Foreground="White"
-                               FontSize="12"
-                               FontWeight="Medium"
-                               FontFamily="Montserrat"
-                               Cursor="Hand"
-                               Margin="8,0,0,0"/>
-                    </StackPanel>-->
                 </StackPanel>
             </Grid>
         </Border>
-
     </Border>
 </Window>

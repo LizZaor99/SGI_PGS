@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Threading;
 using FontAwesome.WPF;
 using SGI.Models;
 using SGI.Repositories;
@@ -19,10 +20,20 @@ namespace SGI.ViewModels
         private string _caption;
         private FontAwesomeIcon _icon;
         private IUserRepository userRepository;
+        private string _currentDateTime;
 
         //Properties
-        public UserAccountModel CurrentUserAccount { get { return _currentUserAccount; } set { _currentUserAccount = value; OnPropertyChanged(nameof(CurrentUserAccount)); } }
-
+        public UserAccountModel CurrentUserAccount 
+        { 
+            get 
+            { 
+                return _currentUserAccount; 
+            } 
+            set 
+            { 
+                _currentUserAccount = value; OnPropertyChanged(nameof(CurrentUserAccount)); 
+            } 
+        }
         public ViewModelBase CurrentChildView
         {
             get
@@ -56,6 +67,21 @@ namespace SGI.ViewModels
                 _icon = value; OnPropertyChanged(nameof(Icon)); 
             }
         }
+        public string CurrentDateTime
+        {
+            get
+            {
+                return _currentDateTime;
+            }
+            set
+            {
+                if (value != _currentDateTime)
+                {
+                    _currentDateTime = value;
+                    OnPropertyChanged("CurrentDateTime");
+                }
+            }
+        }
 
         // Commands of the views
         public ICommand ShowHomeViewCommand { get; }
@@ -66,7 +92,6 @@ namespace SGI.ViewModels
         public ICommand ShowNetworkViewCommand { get; }
         public ICommand ShowSMSViewCommand { get; }
         public ICommand ShowManageViewCommand { get; }
-
 
         //Constructor
         public DashboardViewModel()
@@ -93,6 +118,7 @@ namespace SGI.ViewModels
         {
             CurrentChildView = new HomeViewModel();
             Caption = "Inicio";
+            GetCurrentDateTime();
             Icon = FontAwesomeIcon.Home;
         }
         private void ExecuteShowContactsViewCommand(object obj)
@@ -153,6 +179,29 @@ namespace SGI.ViewModels
                 //Hide child views.
             }
         }
+        public string GetCurrentDateTime()
+        {
+            try
+            {
+                DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+                dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+                dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+                dispatcherTimer.Start();
 
+                return CurrentDateTime;
+            }
+            catch
+            {
+                return CurrentDateTime;
+            }
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            this.CurrentDateTime = DateTime.Now.ToString("HH':'mm tt    dddd, dd MMMM yyyy");
+
+           //this.CurrentDateTime = DateTime.Now.ToLongDateString();
+            CommandManager.InvalidateRequerySuggested();
+        }
     }
 }
