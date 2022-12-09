@@ -31,7 +31,6 @@ namespace SGI.Repositories
                 validUser = command.ExecuteScalar() == null ? false : true;
             }
             return validUser;
-
         }
 
         public void Edit(UserModel userModel)
@@ -85,5 +84,6 @@ namespace SGI.Repositories
         {
             throw new NotImplementedException();
         }
+   
     }
 }

@@ -28,15 +28,15 @@
             </Grid.RowDefinitions>
             <!--TOP-->
             <StackPanel Grid.Row="0" Margin="30,20,30,0" Orientation="Horizontal" VerticalAlignment="Center" Height="120">
-                <TextBlock 
+                <TextBlock
+                           Text="{Binding CountLaptop.DisplayLaptop}"
                            Background="{StaticResource color9}" 
                            FontSize="20" 
                            FontFamily="Montserrat" 
                            FontWeight="Medium" 
                            Height="100" Width="125" 
-                           Text="N EQUIPOS ASIGNADOS" 
                            TextWrapping="Wrap" 
-                           TextAlignment="Center"/> 
+                           TextAlignment="Center"/>
                 <TextBlock 
                            Background="{StaticResource color9}" 
                            FontSize="20" 
@@ -78,15 +78,15 @@
                            TextAlignment="Center"
                            Margin="75,0,0,0"/>
             </StackPanel>
-            
-            <!--LEFT-->
-            <Grid Grid.Row="2">
+
+            <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="400"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,125,0,0">
+                <!--RIGHT-->
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,125,0,150">
                     <TextBlock Text="{Binding CurrentDateTime}"  
                                FontSize="30" 
                                FontFamily="Bell MT" 
@@ -95,8 +95,17 @@
                                TextAlignment="Center" Width="250"/>
                 </StackPanel>
 
+                <!--LEFT-->
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center" Margin="0,75,0,100">
+                    <TextBlock Text="Proximas Aperturas:"  
+                               FontSize="30" 
+                               FontFamily="Bell MT" 
+                               FontWeight="Medium"  
+                               TextWrapping="WrapWithOverflow" 
+                               TextAlignment="Center" Width="370" Margin="10"/>
+                    <Image Source="C:\Proyectos\SGI\Images\Apertura.PNG" Height="140" Width="525"/>
+                </StackPanel>
             </Grid>
-            
         </Grid>
     </Border>
 </UserControl>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,7 +21,12 @@ namespace SGI.ViewModels
         private string _caption;
         private FontAwesomeIcon _icon;
         private IUserRepository userRepository;
+        private IHomeRepository homeRepository;
         private string _currentDateTime;
+        private int _tipoEq = 105;
+        private int _status = 6;
+        private HomeModel _countLaptop;
+
 
         //Properties
         public UserAccountModel CurrentUserAccount 
@@ -83,6 +89,45 @@ namespace SGI.ViewModels
             }
         }
 
+        //Status
+        public int TipoEq
+        {
+            get
+            {
+                return _tipoEq;
+            }
+            set
+            {
+                _tipoEq = value;
+                OnPropertyChanged(nameof(TipoEq));
+            }
+        }
+        public int Status
+        {
+            get
+            {
+                return _status;
+            }
+            set
+            {
+                _status = value;
+                OnPropertyChanged(nameof(Status));
+            }
+        }
+
+        public HomeModel CountLaptop
+        {
+            get
+            {
+                return _countLaptop;
+            }
+            set
+            {
+                _countLaptop = value; 
+                OnPropertyChanged(nameof(CountLaptop));
+            }
+        }
+
         // Commands of the views
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowContactsViewCommand { get; }
@@ -91,13 +136,16 @@ namespace SGI.ViewModels
         public ICommand ShowEquipmentViewCommand { get; }
         public ICommand ShowNetworkViewCommand { get; }
         public ICommand ShowSMSViewCommand { get; }
-        public ICommand ShowManageViewCommand { get; }
+        public ICommand ShowManageViewCommand { get; } 
+
+        public ICommand CountLapTopCommand { get; }
 
         //Constructor
         public DashboardViewModel()
         {
             userRepository = new UserRepository();
             CurrentUserAccount = new UserAccountModel();
+            
 
             //Initialize commands of the views
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
@@ -109,11 +157,21 @@ namespace SGI.ViewModels
             ShowSMSViewCommand = new ViewModelCommand(ExecuteShowSMSViewCommand);
             ShowManageViewCommand = new ViewModelCommand(ExecuteShowManageViewCommand);
 
+            //Status
+            
+           
             //Default View
             ExecuteShowHomeViewCommand(null);
 
             LoadCurrentUserData();
+            
+
+            homeRepository = new HomeRepository();
+            CountLaptop = new HomeModel();
+            LoadCountLaptopData();
+
         }
+
         private void ExecuteShowHomeViewCommand(object obj)
         {
             CurrentChildView = new HomeViewModel();
@@ -171,7 +229,6 @@ namespace SGI.ViewModels
             {
                 CurrentUserAccount.Username = user.Usuario;
                 CurrentUserAccount.DisplayName = $"{user.Nombre} {user.PrimerApellido}";
-                CurrentUserAccount.ProfilePicture = null;
             }
             else
             {
@@ -179,6 +236,8 @@ namespace SGI.ViewModels
                 //Hide child views.
             }
         }
+
+        //PARA HOME MODEL,MOSTRAR LA HORA 
         public string GetCurrentDateTime()
         {
             try
@@ -198,10 +257,20 @@ namespace SGI.ViewModels
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            this.CurrentDateTime = DateTime.Now.ToString("HH':'mm tt    dddd, dd MMMM yyyy");
+            this.CurrentDateTime = DateTime.Now.ToString("HH':'mm tt - dddd, dd MMMM yyyy");
 
            //this.CurrentDateTime = DateTime.Now.ToLongDateString();
             CommandManager.InvalidateRequerySuggested();
+        }
+
+        //PARA HOME MODEL, MOSTRAR EL CONTEO DE LAPTOPS
+
+        private void LoadCountLaptopData()
+        {
+
+            var count = homeRepository.GetByStatus(TipoEq, Status);
+            
+            CountLaptop.DisplayLaptop = $"{count} Laptops asignadas";
         }
     }
 }

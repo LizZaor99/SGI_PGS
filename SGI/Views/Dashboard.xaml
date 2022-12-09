@@ -153,8 +153,6 @@
                             <TextBlock Text="Administrar" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
-
                 </StackPanel>
             </Border>
 
