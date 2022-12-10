@@ -8,7 +8,7 @@
              d:DesignHeight="550" d:DesignWidth="1000">
 
     <UserControl.DataContext>
-        <ViewModels:DashboardViewModel/>
+        <ViewModels:HomeViewModel/>
     </UserControl.DataContext>
 
     <Border CornerRadius="10"
@@ -29,7 +29,7 @@
             <!--TOP-->
             <StackPanel Grid.Row="0" Margin="30,20,30,0" Orientation="Horizontal" VerticalAlignment="Center" Height="120">
                 <TextBlock
-                           Text="{Binding CountLaptop.DisplayLaptop}"
+                           Text="{Binding CounterEquipment.Display}"
                            Background="{StaticResource color9}" 
                            FontSize="20" 
                            FontFamily="Montserrat" 
@@ -38,42 +38,42 @@
                            TextWrapping="Wrap" 
                            TextAlignment="Center"/>
                 <TextBlock 
+                           Text="{Binding CounterLaptop.Display}"
                            Background="{StaticResource color9}" 
                            FontSize="20" 
                            FontFamily="Montserrat" 
                            FontWeight="Medium" 
-                           Height="100" Width="125" 
-                           Text="N LAPTOPS ASIGNADAS" 
+                           Height="100" Width="125"  
                            TextWrapping="Wrap" 
                            TextAlignment="Center"
                            Margin="75,0,0,0"/>
                 <TextBlock 
+                           Text="{Binding CounterMiniprint.Display}"
                            Background="{StaticResource color9}" 
                            FontSize="20" 
                            FontFamily="Montserrat" 
                            FontWeight="Medium" 
-                           Height="100" Width="125" 
-                           Text="N EQUIPOS ASIGNADOS" 
+                           Height="100" Width="125"  
                            TextWrapping="Wrap" 
                            TextAlignment="Center"
                            Margin="75,0,0,0"/>
                 <TextBlock 
+                           Text="{Binding CounterSwitch.Display}"
                            Background="{StaticResource color9}" 
                            FontSize="20" 
                            FontFamily="Montserrat" 
                            FontWeight="Medium" 
                            Height="100" Width="125" 
-                           Text="N MINIPRINTS ASIGNADAS" 
                            TextWrapping="Wrap" 
                            TextAlignment="Center"
                            Margin="75,0,0,0"/>
                 <TextBlock 
+                           Text="{Binding CounterStore.Display}"
                            Background="{StaticResource color9}" 
                            FontSize="20" 
                            FontFamily="Montserrat" 
                            FontWeight="Medium" 
                            Height="100" Width="125" 
-                           Text="N TIENDAS ABIERTAS" 
                            TextWrapping="WrapWithOverflow" 
                            TextAlignment="Center"
                            Margin="75,0,0,0"/>
@@ -98,7 +98,7 @@
                 <!--LEFT-->
                 <StackPanel Grid.Column="0" HorizontalAlignment="Center" Margin="0,75,0,100">
                     <TextBlock Text="Proximas Aperturas:"  
-                               FontSize="30" 
+                               FontSize="30"  
                                FontFamily="Bell MT" 
                                FontWeight="Medium"  
                                TextWrapping="WrapWithOverflow" 

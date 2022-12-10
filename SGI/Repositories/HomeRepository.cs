@@ -26,5 +26,19 @@ namespace SGI.Repositories
             }
             return COUNT;
         }
+
+        public int GetByStore()
+        {
+            int COUNT;
+            using (var connection = GetConnection())
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "select COUNT(ID) from CatAreas";
+                COUNT = Convert.ToInt32(command.ExecuteScalar());
+            }
+            return COUNT - 2;
+        }
     }
 }

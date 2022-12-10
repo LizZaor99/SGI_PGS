@@ -21,12 +21,6 @@ namespace SGI.ViewModels
         private string _caption;
         private FontAwesomeIcon _icon;
         private IUserRepository userRepository;
-        private IHomeRepository homeRepository;
-        private string _currentDateTime;
-        private int _tipoEq = 105;
-        private int _status = 6;
-        private HomeModel _countLaptop;
-
 
         //Properties
         public UserAccountModel CurrentUserAccount 
@@ -73,60 +67,6 @@ namespace SGI.ViewModels
                 _icon = value; OnPropertyChanged(nameof(Icon)); 
             }
         }
-        public string CurrentDateTime
-        {
-            get
-            {
-                return _currentDateTime;
-            }
-            set
-            {
-                if (value != _currentDateTime)
-                {
-                    _currentDateTime = value;
-                    OnPropertyChanged("CurrentDateTime");
-                }
-            }
-        }
-
-        //Status
-        public int TipoEq
-        {
-            get
-            {
-                return _tipoEq;
-            }
-            set
-            {
-                _tipoEq = value;
-                OnPropertyChanged(nameof(TipoEq));
-            }
-        }
-        public int Status
-        {
-            get
-            {
-                return _status;
-            }
-            set
-            {
-                _status = value;
-                OnPropertyChanged(nameof(Status));
-            }
-        }
-
-        public HomeModel CountLaptop
-        {
-            get
-            {
-                return _countLaptop;
-            }
-            set
-            {
-                _countLaptop = value; 
-                OnPropertyChanged(nameof(CountLaptop));
-            }
-        }
 
         // Commands of the views
         public ICommand ShowHomeViewCommand { get; }
@@ -137,8 +77,6 @@ namespace SGI.ViewModels
         public ICommand ShowNetworkViewCommand { get; }
         public ICommand ShowSMSViewCommand { get; }
         public ICommand ShowManageViewCommand { get; } 
-
-        public ICommand CountLapTopCommand { get; }
 
         //Constructor
         public DashboardViewModel()
@@ -157,18 +95,9 @@ namespace SGI.ViewModels
             ShowSMSViewCommand = new ViewModelCommand(ExecuteShowSMSViewCommand);
             ShowManageViewCommand = new ViewModelCommand(ExecuteShowManageViewCommand);
 
-            //Status
-            
-           
             //Default View
             ExecuteShowHomeViewCommand(null);
-
             LoadCurrentUserData();
-            
-
-            homeRepository = new HomeRepository();
-            CountLaptop = new HomeModel();
-            LoadCountLaptopData();
 
         }
 
@@ -176,7 +105,6 @@ namespace SGI.ViewModels
         {
             CurrentChildView = new HomeViewModel();
             Caption = "Inicio";
-            GetCurrentDateTime();
             Icon = FontAwesomeIcon.Home;
         }
         private void ExecuteShowContactsViewCommand(object obj)
@@ -235,42 +163,6 @@ namespace SGI.ViewModels
                 CurrentUserAccount.DisplayName = "Usuario invalido";
                 //Hide child views.
             }
-        }
-
-        //PARA HOME MODEL,MOSTRAR LA HORA 
-        public string GetCurrentDateTime()
-        {
-            try
-            {
-                DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-                dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-                dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-                dispatcherTimer.Start();
-
-                return CurrentDateTime;
-            }
-            catch
-            {
-                return CurrentDateTime;
-            }
-        }
-
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
-        {
-            this.CurrentDateTime = DateTime.Now.ToString("HH':'mm tt - dddd, dd MMMM yyyy");
-
-           //this.CurrentDateTime = DateTime.Now.ToLongDateString();
-            CommandManager.InvalidateRequerySuggested();
-        }
-
-        //PARA HOME MODEL, MOSTRAR EL CONTEO DE LAPTOPS
-
-        private void LoadCountLaptopData()
-        {
-
-            var count = homeRepository.GetByStatus(TipoEq, Status);
-            
-            CountLaptop.DisplayLaptop = $"{count} Laptops asignadas";
         }
     }
 }

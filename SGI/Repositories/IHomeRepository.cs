@@ -11,5 +11,6 @@ namespace SGI.Repositories
     public interface IHomeRepository
     {
         int GetByStatus(int tipoEquipo, int status);
+        int GetByStore();
     }
 }

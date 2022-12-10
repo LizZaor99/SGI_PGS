@@ -24,5 +24,6 @@ namespace SGI.Views
         {
             InitializeComponent();
         }
+
     }
 }

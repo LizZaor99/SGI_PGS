@@ -8,5 +8,8 @@ namespace SGI.ViewModels
 {
     public class ContactsViewModel : ViewModelBase
     {
+        //Properties
+        //Constructor
+        //Functions
     }
 }

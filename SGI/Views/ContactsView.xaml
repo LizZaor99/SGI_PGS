@@ -4,9 +4,200 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SGI.Views"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBox Text="CONTACTO VISTA"></TextBox>
-    </Grid>
+             d:DesignHeight="550" d:DesignWidth="1000">
+
+    <Border CornerRadius="10"
+            BorderThickness="2">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.75"/>
+                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--LEFT-->
+            <Grid Grid.Column="0">
+                <DataGrid Name="DataGridContacts" Margin="30,150,30,30">
+
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}" >
+                            <Setter Property="Background" Value="{StaticResource plainTextColor4}"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="Height" Value="30" />
+                            <Setter Property="FontFamily" Value="Montserrat"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+
+                    </DataGrid.Resources>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding id}" Header="Nombres" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding id}" Header="Primer Apellido" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding id}" Header="Segundo Apellido" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding id}" Header="Celular" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding id}" Header="Email" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding id}" Header="Cargo" Width="120"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <!--RIGHT-->
+            <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,50,10,0" Height="25">
+                <TextBlock Text="Administración de contactos: "
+                               Foreground="{StaticResource panelColor}"
+                               FontSize="20"
+                               FontFamily="Montserrat"
+                               Grid.Column="0"
+                               FontWeight="Bold" Width="275" Height="25"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,155,10,28">
+                <StackPanel Orientation="Horizontal" Width="320">
+                    <Label Margin="3,0,45,0" VerticalAlignment="Center" Height="25" Content="Nombres: "/>
+                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="320">
+                    <Label Margin="3,0,12.5,0" VerticalAlignment="Center" Height="25" Content="Primer Apellido: "/>
+                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="320">
+                    <Label Margin="3,0,0,0" VerticalAlignment="Center" Height="26" Content="Segundo Apellido: "/>
+                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="320">
+                    <Label Margin="3,0,58,0" VerticalAlignment="Center" Height="25" Content="Celular: "/>
+                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="320">
+                    <Label Margin="3,0,66.5,0" VerticalAlignment="Center" Height="25" Content="Email: "/>
+                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="320">
+                    <Label Margin="3,0,63,0" VerticalAlignment="Center" Height="28" Content="Cargo: "/>
+                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="20" Width="320">
+                    <Label Margin="0" VerticalAlignment="Center" Height="25" Content="Area: "/>
+                    <ComboBox Height="25" Width="100">
+                        <ComboBoxItem Content="ComboBox Item #1"/>
+                        <ComboBoxItem IsSelected="True" Content="ComboBox Item #2"/>
+                        <ComboBoxItem Content="ComboBox Item #3"/>
+                    </ComboBox>
+
+                    <Label Margin="18,0,0,0" VerticalAlignment="Center" Height="25" Content="Tienda: "/>
+                    <ComboBox Height="25" Width="100">
+                        <ComboBoxItem Content="ComboBox Item #1"/>
+                        <ComboBoxItem IsSelected="True" Content="ComboBox Item #2"/>
+                        <ComboBoxItem Content="ComboBox Item #3"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="316" Height="50" Margin="50">
+
+                    <Button Margin="3" Height="30" Width="100" Content="Agregar " 
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="{StaticResource plainTextColor4}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource titleColor3}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="30"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <!--Update Button-->
+                    <Button Margin="3" Height="30" Width="100" Content="Actualizar"
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="{StaticResource plainTextColor4}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource titleColor3}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="30"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <!--Delete Button-->
+                    <Button Margin="3" Height="30" Width="100" Content="Eliminar"
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="{StaticResource plainTextColor4}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource titleColor3}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="30"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+                <!--Add Button-->
+            </StackPanel>
+
+
+
+        </Grid>
+
+
+    </Border>
 </UserControl>
