@@ -62,10 +62,13 @@
     <Compile Include="Helpers\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactsModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\UserAccountModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Repositories\ContactsRepository.cs" />
     <Compile Include="Repositories\HomeRepository.cs" />
+    <Compile Include="Repositories\IContactsRepository.cs" />
     <Compile Include="Repositories\IHomeRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />

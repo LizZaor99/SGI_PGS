@@ -4,9 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SGI.Views"
-             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:fa="http://schemas.fontawesome.io/icons/" xmlns:ViewModels="clr-namespace:SGI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="1000">
+
+    <UserControl.DataContext>
+        <ViewModels:ContactsViewModel/>
+    </UserControl.DataContext>
 
     <Border CornerRadius="10"
             BorderThickness="2">
@@ -26,6 +30,24 @@
 
             <!--LEFT-->
             <Grid Grid.Column="0">
+
+
+                <StackPanel Orientation="Horizontal" Margin="30,48,30,466">
+                    <TextBlock Height="25" 
+                               Margin="3"
+                               Name="txtBlock" Text="Buscar: "
+                               VerticalAlignment="Top" 
+                               Width="79"
+                               FontWeight="Bold"
+                               FontSize="20"
+                               FontFamily="Montserrat"/>
+                    <TextBox Height="25" 
+                             Margin="3"
+                             Name="txtSearch" 
+                             VerticalAlignment="Top" 
+                             Width="347"/>
+                </StackPanel>
+
                 <DataGrid Name="DataGridContacts" Margin="30,150,30,30">
 
                     <DataGrid.Resources>
@@ -88,18 +110,16 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="20" Width="320">
-                    <Label Margin="0" VerticalAlignment="Center" Height="25" Content="Area: "/>
-                    <ComboBox Height="25" Width="100">
-                        <ComboBoxItem Content="ComboBox Item #1"/>
-                        <ComboBoxItem IsSelected="True" Content="ComboBox Item #2"/>
-                        <ComboBoxItem Content="ComboBox Item #3"/>
+                    <Label Margin="0" VerticalAlignment="Center" Height="25" Content="Area: " Width="38"/>
+                    <ComboBox Height="25" Width="105" Name="cbxArea"
+                              ItemsSource="{Binding Path=Area}"   
+                              DisplayMemberPath="NombreSuc">
                     </ComboBox>
 
                     <Label Margin="18,0,0,0" VerticalAlignment="Center" Height="25" Content="Tienda: "/>
-                    <ComboBox Height="25" Width="100">
-                        <ComboBoxItem Content="ComboBox Item #1"/>
-                        <ComboBoxItem IsSelected="True" Content="ComboBox Item #2"/>
-                        <ComboBoxItem Content="ComboBox Item #3"/>
+                    <ComboBox Height="25" Width="105" Name="cbxTienda"
+                              ItemsSource="{Binding Path=TipoTienda}"   
+                              DisplayMemberPath="Tienda">
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="316" Height="50" Margin="50">
