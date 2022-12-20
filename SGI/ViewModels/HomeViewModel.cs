@@ -165,7 +165,7 @@ namespace SGI.ViewModels
                 return CurrentDateTime;
             }
         }
-
+       
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             this.CurrentDateTime = DateTime.Now.ToString("HH':'mm tt\ndddd, dd MMMM yyyy");

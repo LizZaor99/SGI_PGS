@@ -13,5 +13,8 @@ namespace SGI.Repositories
     {
         ObservableCollection<ContactsModel> GetByStore();
         ObservableCollection<ContactsModel> GetByArea();
+        ObservableCollection<ContactoModel> GetByAll();
+        void Delete(int Id);
+        void Add(string nombres, string primerAP, string segundoAP, string celular, string email, string cargo, string area, string tienda);
     }
 }

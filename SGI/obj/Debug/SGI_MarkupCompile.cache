@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Proyectos\SGI\SGI\App.xaml
-13-917786992
+14-1609718822
 
 3893697560
 15-353946171
-Helpers\BindablePasswordBox.xaml;Styles\ButtonStyles.xaml;Styles\UIColors.xaml;Views\ContactsView.xaml;Views\Dashboard.xaml;Views\EquipmentView.xaml;Views\HomeView.xaml;Views\InventoryView.xaml;Views\LoginView.xaml;Views\ManageView.xaml;Views\NetworkView.xaml;Views\ProvidersView.xaml;Views\SMSView.xaml;
+Helpers\BindablePasswordBox.xaml;Styles\ButtonStyles.xaml;Styles\DataGridStyles.xaml;Styles\UIColors.xaml;Views\ContactsView.xaml;Views\Dashboard.xaml;Views\EquipmentView.xaml;Views\HomeView.xaml;Views\InventoryView.xaml;Views\LoginView.xaml;Views\ManageView.xaml;Views\NetworkView.xaml;Views\ProvidersView.xaml;Views\SMSView.xaml;
 
 False
 

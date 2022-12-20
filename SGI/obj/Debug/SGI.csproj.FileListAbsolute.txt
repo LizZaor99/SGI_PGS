@@ -41,3 +41,4 @@ C:\Proyectos\SGI\SGI\obj\Debug\Views\InventoryView.baml
 C:\Proyectos\SGI\SGI\obj\Debug\Views\ManageView.baml
 C:\Proyectos\SGI\SGI\obj\Debug\Views\NetworkView.baml
 C:\Proyectos\SGI\SGI\obj\Debug\Views\ProvidersView.baml
+C:\Proyectos\SGI\SGI\obj\Debug\Styles\DataGridStyles.baml

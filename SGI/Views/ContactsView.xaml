@@ -47,30 +47,19 @@
                              VerticalAlignment="Top" 
                              Width="347"/>
                 </StackPanel>
-
-                <DataGrid Name="DataGridContacts" Margin="30,150,30,30">
-
-                    <DataGrid.Resources>
-                        <Style TargetType="{x:Type DataGridColumnHeader}" >
-                            <Setter Property="Background" Value="{StaticResource plainTextColor4}"/>
-                            <Setter Property="VerticalContentAlignment" Value="Center" />
-                            <Setter Property="Height" Value="30" />
-                            <Setter Property="FontFamily" Value="Montserrat"/>
-                            <Setter Property="FontWeight" Value="SemiBold"/>
-                            <Setter Property="FontSize" Value="12"/>
-                            <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="BorderBrush" Value="Black"/>
-                        </Style>
-
-                    </DataGrid.Resources>
+                <DataGrid Name="DataGridContacts" Width="450" Style="{StaticResource DGstyle}" Height="350" Margin="24,157,24,39" ItemsSource="{Binding Contacts}" 
+                          SelectedItem="{Binding SelectedData, Mode=TwoWay}">
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding id}" Header="Nombres" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding id}" Header="Primer Apellido" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding id}" Header="Segundo Apellido" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding id}" Header="Celular" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding id}" Header="Email" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding id}" Header="Cargo" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding ID}" Header="N° Control" Width="70"/>
+                        <DataGridTextColumn Binding="{Binding Nombres}" Header="Nombres" Width="90"/>
+                        <DataGridTextColumn Binding="{Binding PrimerAP}" Header="Primer Apellido" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding SegundoAP}" Header="Segundo Apellido" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding Celular}" Header="Celular" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding Email}" Header="Email" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding Cargo}" Header="Cargo" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding NombreSuc}" Header="Area" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding Tienda}" Header="Tienda" Width="120"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -85,51 +74,63 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,155,10,28">
                 <StackPanel Orientation="Horizontal" Width="320">
+                    <Label Margin="3,0,55,0" VerticalAlignment="Center" Height="25" Content="Control: "/>
+                    <TextBox x:Name="txtId" Margin="3" VerticalAlignment="Center" Width="200" Height="25" Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="320">
                     <Label Margin="3,0,45,0" VerticalAlignment="Center" Height="25" Content="Nombres: "/>
-                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                    <TextBox x:Name="txtName" Margin="3" VerticalAlignment="Center" Width="200" Height="25" Text="{Binding Names, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="320">
                     <Label Margin="3,0,12.5,0" VerticalAlignment="Center" Height="25" Content="Primer Apellido: "/>
-                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                    <TextBox x:Name="txtPrimerAP" Margin="3" VerticalAlignment="Center" Width="200" Height="25" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="320">
                     <Label Margin="3,0,0,0" VerticalAlignment="Center" Height="26" Content="Segundo Apellido: "/>
-                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                    <TextBox x:Name="txtSegundoAP" Margin="3" VerticalAlignment="Center" Width="200" Height="25" Text="{Binding SecondName, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="320">
                     <Label Margin="3,0,58,0" VerticalAlignment="Center" Height="25" Content="Celular: "/>
-                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                    <TextBox x:Name="txtCelular" Margin="3" VerticalAlignment="Center" Width="200" Height="25" Text="{Binding Cel, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="320">
                     <Label Margin="3,0,66.5,0" VerticalAlignment="Center" Height="25" Content="Email: "/>
-                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                    <TextBox x:Name="txtEmail" Margin="3" VerticalAlignment="Center" Width="200" Height="25" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="320">
                     <Label Margin="3,0,63,0" VerticalAlignment="Center" Height="28" Content="Cargo: "/>
-                    <TextBox Margin="3" VerticalAlignment="Center" Width="200" Height="25"/>
+                    <TextBox x:Name="txtCargo" Margin="3" VerticalAlignment="Center" Width="200" Height="25" Text="{Binding Position, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
+               
 
                 <StackPanel Orientation="Horizontal" Margin="20" Width="320">
                     <Label Margin="0" VerticalAlignment="Center" Height="25" Content="Area: " Width="38"/>
-                    <ComboBox Height="25" Width="105" Name="cbxArea"
+                    <ComboBox x:Name="cbxArea" Height="25" Width="105"
                               ItemsSource="{Binding Path=Area}"   
-                              DisplayMemberPath="NombreSuc">
+                              DisplayMemberPath="NombreSuc"
+                              SelectedIndex="0"
+                              SelectedValue = "{Binding SelectedArea, Mode=TwoWay}">
                     </ComboBox>
 
                     <Label Margin="18,0,0,0" VerticalAlignment="Center" Height="25" Content="Tienda: "/>
-                    <ComboBox Height="25" Width="105" Name="cbxTienda"
-                              ItemsSource="{Binding Path=TipoTienda}"   
-                              DisplayMemberPath="Tienda">
+                    <ComboBox x:Name="cbxTienda"
+                              Height="25" Width="105"
+                              ItemsSource="{Binding Path=StoreType}"   
+                              DisplayMemberPath="Tienda"
+                              SelectedIndex="0"
+                              SelectedValue = "{Binding SelectedStore, Mode=TwoWay}">
                     </ComboBox>
+                    
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Width="316" Height="50" Margin="50">
+                <StackPanel Orientation="Horizontal" Width="316" Height="50" Margin="30">
 
                     <Button Margin="3" Height="30" Width="100" Content="Agregar " 
                             BorderThickness="0"
                             Foreground="White"
                             FontSize="12"
                             FontFamily="Montserrat"
-                            Cursor="Hand">
+                            Cursor="Hand"
+                            Command="{Binding AddCommand}">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Background" Value="{StaticResource plainTextColor4}"/>
@@ -187,7 +188,8 @@
                             Foreground="White"
                             FontSize="12"
                             FontFamily="Montserrat"
-                            Cursor="Hand">
+                            Cursor="Hand"
+                            Command="{Binding DeletedCommand}" Click="Button_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Background" Value="{StaticResource plainTextColor4}"/>
